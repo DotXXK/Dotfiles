@@ -1,0 +1,20 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Master Config 1080p*/
+
+/* ---- Configuration ---- */
+
+
+/* ---- Load wallust colors ---- */
+@theme "~/.config/rofi/themes/minimal.rasi"
+
+/* ---- Global Properties ---- */
+* {
+
+    background-alt:              @selected-active-background; // Buttons background
+    selected:                    @selected-urgent-background; // Button selected
+    active:                      @selected-normal-background; // Window activated
+    urgent:                      @selected; // When hovering the activated window (maybe more?)
+
+    text-color:                  @fg;
+}
+
