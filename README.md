@@ -10,7 +10,6 @@ These are my own Dotfiles, you can steal it if you want :D
 * Awww
 * Swaync
 * Alacritty
-* 
 
 **Optional**
 
