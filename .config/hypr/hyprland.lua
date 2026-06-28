@@ -26,8 +26,15 @@
 hl.monitor({
     output   = "HDMI-A-1",
     mode     = "1920x1080",
-    position = "auto",
+    position = "0x0",
     scale    = "1",
+})
+
+hl.monitor({
+    output  = "eDP-1",
+    mode    = "1366x768",
+    position= "1920x0",
+    scale   = "1",
 })
 
 
@@ -51,7 +58,8 @@ local menu        = "rofi -show drun"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function () 
-   hl.exec_cmd("waybar & awww-daemon")
+   hl.exec_cmd("waybar & awww-daemon & swaync")
+   hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 end)
 
 
@@ -253,7 +261,16 @@ hl.device({
     sensitivity = -0.5,
 })
 
-
+hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1" , default = true })
+hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-1" })
+hl.workspace_rule({ workspace = "8", monitor = "eDP-1" })
+hl.workspace_rule({ workspace = "9", monitor = "eDP-1" })
+hl.workspace_rule({ workspace = "10", monitor = "eDP-1" })
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -267,6 +284,8 @@ local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("~/.config/hypr/res.sh"))
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("~/.config/hypr/Wall.sh"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
@@ -288,7 +307,7 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+-- hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll

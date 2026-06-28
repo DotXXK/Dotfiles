@@ -5,7 +5,8 @@
 }
 
 window#waybar {
-    background-color: rgba(29, 29, 29, 1);
+    background-color: #1d2021;
+    border-radius: 3px;
     color: #060606;
     transition-property: background-color;
     transition-duration: .5s;
@@ -65,7 +66,7 @@ button:hover {
 }
 
 #workspaces button.focused, #workspaces button.active {
-    background-color: #64727D;
+    background-color: #91a764;
 }
 
 #workspaces button.urgent {
@@ -98,6 +99,9 @@ button:hover {
     color: #ffffff;
 }
 
+#custom-bar {
+    color: #91a764;
+}
 #window,
 #workspaces {
     margin: 0 4px;
@@ -164,7 +168,7 @@ label:focus {
 }
 
 #cpu {
-    color: #000000;
+    color: #ffffff;
 }
 
 #memory {

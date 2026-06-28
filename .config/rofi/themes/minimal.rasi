@@ -36,8 +36,8 @@ configuration {
 
   bg: #181818;
   bg-alt: #232323;
-  fg:rgb(255, 255, 255);
-  fg-alt:rgb(150, 150, 150);
+  fg:rgb(145, 167, 100);
+  fg-alt:rgb(206, 189, 156) ;
 
   background-color: @bg;
   text-color: @fg;
